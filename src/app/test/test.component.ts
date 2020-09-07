@@ -2,12 +2,21 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-test',
-  template: ` <h2>Welcome {{ name }}</h2>`,
+  template: `
+    <h2>Welcome {{ name.toUpperCase() }}</h2>
+    <h2>{{ greetUser() }}</h2>
+    <h2>{{ siteUrl }}</h2>
+  `,
   styleUrls: ['./test.component.css'],
 })
 export class TestComponent implements OnInit {
   public name = 'Johnno';
+  public siteUrl = window.location.href;
   constructor() {}
 
   ngOnInit(): void {}
+
+  greetUser() {
+    return 'Hello ' + this.name;
+  }
 }
